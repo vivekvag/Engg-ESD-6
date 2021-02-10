@@ -1,0 +1,14 @@
+{
+  "name": "bonacoder",
+  "version": "1.0.0",
+  "description": "Born to Code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bonacoder"
+  ],
+  "author": "VR-RPH",
+  "license": "ISC"
+}

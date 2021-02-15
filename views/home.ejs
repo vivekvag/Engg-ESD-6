@@ -4,17 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
     <title>Document</title>
 </head>
 <body>
     <main>
         <div class="section">
             <h1>Hey, there...</h1>
-            <form action="/submit-code" method="POST">
-	            <textarea name="code"></textarea>
-	            <input type="submit" name="submit">
+            <form method="post" action="/submit-code">
+            	<select name="language">
+            		<option value="python3">Python 3</option>
+            		<option value="php">PHP</option>
+            		<option value="java">Java</option>
+            		<option value="c">C</option>
+            	</select>
+            	<br>
+	            <textarea name="code"><%= codeElements.code %></textarea>
+	            <input type="submit">
+	            <!-- <button type="submit" id="submit" onclick="getOutput();">Submit</button> -->
             </form>
         </div>
+        <div id="output"><%= codeElements.output%></div>
     </main>
+    <script>
+    	// function getOutput() {
+    	// 	var data1 = {
+    	// 		code: $('#code').val()
+    	// 	};
+    	// 	$.ajax({
+    	// 		type: "POST",
+    	// 		timeout: 2000,
+    	// 		data: JSON.stringify(data1),
+    	// 		url: "http://localhost:3000/submit-code",
+    	// 		contentType: "application/json",
+    	// 		// success: function (data) {
+			  //   //     console.log(data);
+			  //   //     $('#output').html(JSON.stringify(data,"",2));
+			  //   // }
+    	// 	})
+    	// 	.done(function(data){
+    	// 		$('#output').html(JSON.stringify(data,"",2));
+    	// 		console.log(data);
+    	// 	})
+    	// 	.fail(function(jqXHR,textstatus,err){
+    	// 		console.log(textstatus);
+    	// 	})
+    	// }
+    </script>
 </body>
 </html>

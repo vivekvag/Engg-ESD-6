@@ -53,6 +53,15 @@ app.get('/', function(req,res){
     codeElements = {code:"",output:"",lang:"python3"}
     res.render('home',{codeElements:codeElements});
 });
+app.get('/index', function(req,res){
+    res.render('index');
+});
+app.get('/about', function(req,res){
+    res.render('about');
+});
+app.get('/assignments', function(req,res){
+    res.render('assignments');
+});
 app.get('/login', function(req,res){
     res.render('login');
 });

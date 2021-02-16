@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.set('trust proxy', 1) // trust first proxy
@@ -35,6 +36,8 @@ var url=process.env.MONGOD_API;
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
+var codeElements = {};
+
 const userSchema = new mongoose.Schema({
     first_name: String,
     last_name: String,
@@ -46,8 +49,21 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model('User', userSchema);
 
+app.get('/problem', function(req,res){
+    codeElements = {code:"",output:"",lang:"python3"}
+    res.render('problem',{codeElements:codeElements});
+});
 app.get('/', function(req,res){
-    res.render('home');
+    res.render('index');
+});
+app.get('/index', function(req,res){
+    res.redirect('/');
+})
+app.get('/about', function(req,res){
+    res.render('about');
+});
+app.get('/assignments', function(req,res){
+    res.render('assignments');
 });
 app.get('/login', function(req,res){
     res.render('login');
@@ -108,10 +124,13 @@ app.post("/login", function (req, res) {
     })
 });
 
+
 app.post("/submit-code",function(req,res){
-        var program = {
+    codeElements.code = req.body.code;
+    codeElements.lang = req.body.language;
+    var program = {
         script : req.body.code,
-        language: "python3",
+        language: req.body.language,
         versionIndex: "3",
         clientId: process.env.CLIENT_ID,
         clientSecret:process.env.CLIENT_SECRET
@@ -122,10 +141,14 @@ app.post("/submit-code",function(req,res){
         json: program
     },
     function (error, response, body) {
-        console.log('error:', error);
-        console.log('statusCode:', response && response.statusCode);
-        console.log('body:', body);
+        // console.log('error:', error);
+        // console.log('statusCode:', response && response.statusCode);
+        // console.log('body:', body);
+        codeElements.output = body.output;
+        console.log(codeElements);
+        res.render('home',{codeElements: codeElements})
     });
+
 })
 
 

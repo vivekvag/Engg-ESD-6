@@ -15,6 +15,7 @@ const fs = require('fs');
 const path = require('path'); 
 const multer = require('multer'); 
 const app = express();
+var request = require('request');
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -107,12 +108,35 @@ app.post("/login", function (req, res) {
     })
 });
 
+app.post("/submit-code",function(req,res){
+        var program = {
+        script : req.body.code,
+        language: "python3",
+        versionIndex: "3",
+        clientId: process.env.CLIENT_ID,
+        clientSecret:process.env.CLIENT_SECRET
+    };
+    request({
+        url: 'https://api.jdoodle.com/v1/execute',
+        method: "POST",
+        json: program
+    },
+    function (error, response, body) {
+        console.log('error:', error);
+        console.log('statusCode:', response && response.statusCode);
+        console.log('body:', body);
+    });
+})
+
+
 app.get("/logout", function (req, res) {
     userLogin = false;
     res.clearCookie('userLogin');
     // console.log(req.cookies);
     res.redirect("/");
 });
+
+
 
 app.listen(3000, function () {
     console.log("Server started on port 3000.");

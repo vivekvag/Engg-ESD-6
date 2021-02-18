@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Home </title>
+    <title>Home - BonaCoder</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo/loder.png">
 
     <!-- CSS here -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -26,60 +26,9 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-        <div class="header-area header-transparent">
-            <div class="main-header ">
-                <div class="header-bottom  header-sticky">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="index"><img src="/img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10">
-                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
-                                    <!-- Main-menu -->
-                                    <div class="main-menu d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">                                                                                          
-                                                <li class="active" ><a href="index">Home</a></li>
-                                                <li><a href="assignments">Assignments</a></li>
-                                                <li><a href="about">About</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <!-- Header-btn -->
-                                    <div class="header-right-btn d-none d-lg-block ml-65">
-                                        <a href="login" class="border-btn">Log in</a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header End -->
-    </header>
+
+    <%- include('./../public/layouts/header') %>
+
     <!-- header end -->
     <main>
         <!--? slider Area Start-->
@@ -91,10 +40,9 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-8 col-lg-11 col-md-12">
                                 <div class="hero__caption text-center">
-                                    <h1 data-animation="bounceIn" data-delay="0.2s">Stay connected together in your own business network</h1>
-                                    <p data-animation="fadeInUp" data-delay="0.4s">Personalized experiences are proven to increase conversions. Appli makes 
-                                    it easy. Let's make the internet delightfully human.</p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInUp" data-delay="0.7s">Get Started Now</a>
+                                    <h1 data-animation="bounceIn" data-delay="0.2s">Own your programming, elevate your career</h1>
+                                    <p data-animation="fadeInUp" data-delay="0.4s">Automated training & evaluation for your coding assignments which will help you elevate your career to the next level.</p>
+                                    <a href="assignments" class="btn hero-btn" data-animation="fadeInUp" data-delay="0.7s">Get Started Now</a>
                                 </div>
                             </div>
                         </div>
@@ -117,18 +65,6 @@
                 </div>
             </div>
         </section>
-        <!-- slider Area End-->
-        <div class="project-screen">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="screen-img">
-                            <img src="/img/gallery/screen.png" alt="" class=" w-100">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--? Brand Area Start -->
         <div class="brand-area">
             <div class="container">
@@ -168,7 +104,7 @@
                     <div class="col-xl-7 col-lg-8">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <h2>Finally focus on my marketing strategy and delegate</h2>
+                            <h2>Finally focus on your logic and accuracy improvment</h2>
                             <p>In the old days, your website was the same for everyone. Not anymore. Experiences lets you adapt your website for every audience.</p>
                         </div>
                     </div>
@@ -180,8 +116,8 @@
                                 <img src="/img/icon/services1.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Data Driven</a></h5>
+                                <p>We are not afraid to challenge the status-quo.</p>
                             </div>
                         </div>
                     </div>
@@ -191,8 +127,8 @@
                                 <img src="/img/icon/services2.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Customer Delight</a></h5>
+                                <p>We are obsessed with customer happiness.</p>
                             </div>
                         </div>
                     </div>
@@ -202,8 +138,8 @@
                                 <img src="/img/icon/services3.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Forever Learner</a></h5>
+                                <p>We never stop learning.</p>
                             </div>
                         </div>
                     </div>
@@ -213,8 +149,8 @@
                                 <img src="/img/icon/services4.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Extreme Ownership</a></h5>
+                                <p>We operate in a ‘no excuse’ zone.</p>
                             </div>
                         </div>
                     </div>
@@ -224,8 +160,8 @@
                                 <img src="/img/icon/services5.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Giver</a></h5>
+                                <p>We make time to help others achieve their goals.</p>
                             </div>
                         </div>
                     </div>
@@ -235,8 +171,8 @@
                                 <img src="/img/icon/services6.svg" alt="">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="#">Design & creatives</a></h5>
-                                <p>The automated process starts as soon as your clothes go into.</p>
+                                <h5><a href="#">Detail-Oriented</a></h5>
+                                <p>We sweat the details in every interaction.</p>
                             </div>
                         </div>
                     </div>
@@ -244,8 +180,8 @@
             </div>
         </section>
         <!-- Our Services End -->
-        <!--? About Area  -->
-        <section class="about-area2 section-padding40 section-bg2" data-background="/img/gallery/section-bg3.png">
+                <!--? About Area  -->
+        <section class="about-area2 section-padding40">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6 col-md-12">
@@ -255,11 +191,10 @@
                             </div>
                             <!-- Section Tittle -->
                             <div class="section-tittle mb-25">
-                                <h2>You have the power to personalize your website coding.</h2>
+                                <h2>You have the power to improve your coding.</h2>
                             </div>
                             <p class="mb-20">
-                            What if you could get all your website tasks off your plate and focus only on the fun stuff? Working with Growmodo allows you to scale your marketing and grow faster without becoming a designer or developer yourself.                            </p>
-                            <a href="about.html" class="all-btn">See how it work</a>
+                                We are working to change the way programmers learn and solve problems. Building a community of programmers that fosters learning is at the heart of what we do.
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-9 col-sm-9">
@@ -292,28 +227,45 @@
                                 <h2>Personalized experiences are proven to increase conversions</h2>
                             </div>
                             <p class="mb-20">
-                                What if you could get all your website tasks off your plate and focus only on the fun stuff? Working with Growmodo allows you to scale your marketing and grow faster without becoming a designer or developer yourself.
-                            </p>
-                            <a href="about.html" class="all-btn">See how it work</a>
+                                By enabling tech recruiters and hiring managers to objectively evaluate talent at every stage of the recruiting process, we help companies hire skilled developers and innovate faster.                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- About Area End -->
-        <!--? video_start -->
-        <div class="video-area section-bg2 d-flex align-items-center"  data-background="/img/gallery/video-bg.svg">
+        <!--? Brand Area Start -->
+        <div class="brand-area ">
             <div class="container">
-                <div class="video-wrap position-relative"><!--  data-background="img/video_bg/video-img.png" -->
-                    <!-- <div class="vidoe-img"><img class="img" src="/img/gallery/video-bg.svg" alt=""></div> -->
-                    <!-- Video icon -->
-                    <div class="video-icon" >
-                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
+                <div class="brand-active brand-border pb-80">
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand1.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand2.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand3.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand4.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand2.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand5.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand4.png" alt="">
+                    </div>
+                    <div class="single-brand">
+                        <img src="/img/gallery/brand4.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- video_end -->
+        <!-- Brand Area End -->
         <!--? Testimonial Area Start -->
         <section class="testimonial-area fix">    
             <div class="container" >   
@@ -321,8 +273,8 @@
                     <div class="col-xl-7 col-lg-8">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center">
-                            <h2>Amazing customer review</h2>
-                            <p>In the old days, your website was the same for everyone. Not anymore. Experiences lets you adapt your website for every audience.</p>
+                            <h2>Testimonials</h2>
+                            <p>Reviews from users, recuiters and a many personal icons!</p>
                         </div>
                     </div>
                 </div>
@@ -336,13 +288,13 @@
                                     <div class="single-testimonial text-center">
                                         <div class="testimonial-caption">
                                             <img src="/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                            <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
+                                            <p>The results were impressive and gave us increased confidence that BonaCoder would be a success, but if you had asked us to estimate the results when we started the pilot, well, these numbers surpassed our expectations.</p>
                                         </div>
                                         <!-- founder -->
                                         <div class="testimonial-founder d-flex align-items-center justify-content-center">
                                             <div class="founder-text">
                                                 <span>Robart Brown</span>
-                                                <p>Creative designer at Colorlib</p>
+                                                <p>Senior Developer at XYZ</p>
                                             </div>
                                         </div>
                                     </div>
@@ -350,14 +302,14 @@
                                     <div class="single-testimonial text-center">
                                         <div class="testimonial-caption">
                                             <img src="/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                            <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
+                                            <p>It’s a balancing act. We want candidates to have a personal connection to Amplify at every step, but at the same time, our software engineers don’t have the bandwidth to interview every candidate whose resume crosses our desk, so there needs to be some level of technical pre-screening</p>
                                         </div>
                                         <!-- founder -->
                                         <div class="testimonial-founder d-flex align-items-center justify-content-center">
 
                                             <div class="founder-text">
-                                                <span>Robart Brown</span>
-                                                <p>Creative designer at Colorlib</p>
+                                                <span>Jim Kobe</span>
+                                                <p>Senior Manager at ABC</p>
                                             </div>
                                         </div>
                                     </div>
@@ -377,9 +329,9 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-7 col-lg-9 col-md-8">
                             <div class="wantToWork-caption text-center">
-                                <h2>Start finding your dream job</h2>
-                                <p>The automated process starts as soon as your clothes go into the machine. The outcome is gleaming clothes placeholder text commonly used.</p>
-                                <a href="#" class="btn3 wantToWork-btn">Browse Job</a>
+                                <h2>Start your journey today!</h2>
+                                <p>Be ready to elevate your career and programming skills with us, all for FREE</p>
+                                <a href="assignments" class="btn3 wantToWork-btn">Browse Problems</a>
                             </div>
                         </div>
                     </div>
@@ -389,102 +341,8 @@
         <!-- Want To work End -->
 
     </main>
-    <footer>
-     <div class="footer-wrappper section-bg" data-background="/img/gallery/footer-bg.png">
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-xl-4 col-lg-5 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <!-- logo -->
-                                <div class="footer-logo mb-25">
-                                    <a href="index.html"><img src="/img/logo/logo2_footer.png" alt=""></a>
-                                </div>
-                                <div class="footer-tittle">
-                                    <div class="footer-pera">
-                                        <p>The automated process starts as soon as your clothes go into the machine.</p>
-                                    </div>
-                                </div>
-                                <!-- social -->
-                                <div class="footer-social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Our solutions</h4>
-                                <ul>
-                                    <li><a href="#">Design & creatives</a></li>
-                                    <li><a href="#">Telecommunication</a></li>
-                                    <li><a href="#">Restaurant</a></li>
-                                    <li><a href="#">Programing</a></li>
-                                    <li><a href="#">Architecture</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Company</h4>
-                                <ul>
-                                    <li><a href="#">Design & creatives</a></li>
-                                    <li><a href="#">Telecommunication</a></li>
-                                    <li><a href="#">Restaurant</a></li>
-                                    <li><a href="#">Programing</a></li>
-                                    <li><a href="#">Architecture</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                    <li><a href="#">Design & creatives</a></li>
-                                    <li><a href="#">Telecommunication</a></li>
-                                    <li><a href="#">Restaurant</a></li>
-                                    <li><a href="#">Programing</a></li>
-                                    <li><a href="#">Architecture</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- footer-bottom area -->
-        <div class="footer-bottom-area">
-            <div class="container">
-                <div class="footer-border">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-12 ">
-                            <div class="footer-copy-right text-center">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- Footer End-->
-      </div>
-  </footer>
 
-  <!-- Scroll Up -->
-  <div id="back-top" >
-    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-</div>
+    <%- include('./../public/layouts/footer') %>
 
 <!-- JS here -->
 <script src="/js/vendor/modernizr-3.5.0.min.js"></script>

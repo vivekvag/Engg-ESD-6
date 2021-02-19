@@ -75,8 +75,10 @@ textarea {
 	justify-content: center;
 }
 .problem-submit {
+	cursor: pointer;
 	padding: 8px 14px;
-	background-color: blue;
+	background-color: #331391;
+	opacity: 0.95;
 	color: #fff;
 	border-radius: 3px;
 	outline: none;

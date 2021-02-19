@@ -31,7 +31,7 @@ app.set('trust proxy', 1) // trust first proxy
 let random = Math.floor(Math.pow(Math.random(),3)*100000000);
 // console.log(random);
 let amount = 0, message;
-
+let userLogin = false;
 var url=process.env.MONGOD_API;
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
@@ -49,29 +49,50 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model('User', userSchema);
 
-const assignmentsRouter = require('./routes/assignments')
+// const assignmentsRouter = require('./routes/assignments')
 
 app.get('/', function(req,res){
-    res.render('index');
+    res.render('index',{userLogin: userLogin});
 });
 app.get('/index', function(req,res){
     res.redirect('/');
 })
 app.get('/about', function(req,res){
-    res.render('about');
+    res.render('about',{userLogin: userLogin});
 });
 
-app.use('/assignments', assignmentsRouter)
+// app.use('/assignments', assignmentsRouter)
 
-/*app.get('/assignments', function(req,res){
-    res.render('assignments');
-});*/
-
+app.get('/assignments', function(req,res){
+    if(userLogin == false) {
+        res.render('login',{ userLogin: userLogin})
+    }
+    const assignments = [
+        {
+            title: 'Title 1',
+            desc: 'Desc 1',
+            category: 'Category 1',
+            day: 15,
+            month: 'Jan',
+            year: 2020
+        },
+        {
+            title: 'Title 2',
+            desc: 'Desc 2',
+            category: 'Category 2',
+            day: 29,
+            month: 'Feb',
+            year: 2020
+        }
+    ]
+    res.render('assignments', { assignments: assignments, userLogin: userLogin });
+});
+    
 app.get('/login', function(req,res){
-    res.render('login');
+    res.render('login',{userLogin: userLogin});
 });
 app.get('/register', function(req,res){
-    res.render('register');
+    res.render('register',{userLogin: userLogin});
 });
 
 app.get('/problem', function(req,res){
@@ -166,7 +187,7 @@ app.get("/logout", function (req, res) {
     res.redirect("/");
 });
 
-
+module.exports = {userLogin : userLogin}
 
 app.listen(3000, function () {
     console.log("Server started on port 3000.");

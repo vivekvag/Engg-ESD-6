@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const appfile = require('../app.js')
 router.get('/', function(req,res){
     const assignments = [
         {
@@ -20,7 +20,7 @@ router.get('/', function(req,res){
             year: 2020
         }
     ]
-    res.render('assignments', { assignments: assignments });
+    res.render('assignments', { assignments: assignments, userLogin: appfile.userLogin });
 });
 
 module.exports = router

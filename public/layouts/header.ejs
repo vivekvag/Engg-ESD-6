@@ -12,6 +12,7 @@
 <!-- Preloader Start-->
 
 <header>
+<<<<<<< HEAD
 	<!-- Header Start -->
 	<div class="header-area header-transparent">
 		<div class="main-header">
@@ -55,3 +56,54 @@
 	</div>
 	<!-- Header End -->
 </header>
+=======
+    <!-- Header Start -->
+    <div class="header-area header-transparent">
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">                                                                                          
+                                            <li><a href="index">Home</a></li>
+                                            <li><a href="about">About</a></li>
+                                            <% if(userLogin) { %> 
+                                            <li><a href="assignments">Assignments</a></li>
+                                            <% } %>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Header-btn -->
+                                <% if(userLogin) { %>
+                                    <div class="header-right-btn d-none d-lg-block ml-65">
+                                        <a href="logout" class="border-btn">Log Out</a>
+                                    </div>
+                                <% } else { %>
+                                    <div class="header-right-btn d-none d-lg-block ml-65">
+                                        <a href="login" class="border-btn">Log in</a>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div> 
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+>>>>>>> 6756660b18808360e14b459b9b3a6fb0f0f59715

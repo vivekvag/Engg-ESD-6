@@ -68,6 +68,9 @@ app.get('/about', function(req,res){
 // app.use('/assignments', assignmentsRouter)
 
 app.get('/assignments', function(req,res){
+    if(userLogin == false) {
+        res.render('login',{ userLogin: userLogin})
+    }
     const assignments = [
         {
             title: 'Title 1',

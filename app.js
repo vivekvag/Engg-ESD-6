@@ -97,7 +97,7 @@ app.get('/problem/:id', function(req,res){
 });
 
 app.get('/problem', function(req,res){
-    codeElements = {flag:"", code:"",output:"()",lang:"python3"}
+    codeElements = {flag:"", code:"",output:"()",lang:""}
     res.render('problem',{codeElements:codeElements, userLogin:userLogin, obj:obj});
 });
 
@@ -125,7 +125,10 @@ app.post("/submit-code",function(req,res){
         if(codeElements.lang == "python3"){
             obj.question.answer = obj.question.answer + '\n'
         }
-        if(codeElements.output == obj.question.answer){
+        let codeOutput = codeElements.output;
+        let codeAnswer = obj.question.answer;
+        
+        if(codeOutput.toLowerCase() == codeAnswer.toLowerCase()){
             codeElements.flag = true;
         }
         else{

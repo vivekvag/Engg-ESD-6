@@ -29,11 +29,42 @@
 				<div class="property">
 					<h2 class="question"><%= obj.question.desc%></h2>
 					<select class="problem-select" name="language">
+						<!-- PYTHON Loop -->
+						<% if(codeElements.lang == "python3"){ %>
+						<option selected value="python3">Python 3</option>
+						<option value="php">PHP</option>
+						<option value="java">Java</option>
+						<option value="c">C</option>
+
+						<!-- PHP Loop -->
+						<%} else if(codeElements.lang == "php"){ %>
+						<option selected value="php">PHP</option>
+						<option value="python3">Python 3</option>
+						<option value="java">Java</option>
+						<option value="c">C</option>
+
+						<!-- JAVA Loop -->
+						<%} else if(codeElements.lang == "java"){ %>
+						<option selected value="java">Java</option>
+						<option value="python3">Python 3</option>
+						<option value="php">PHP</option>
+						<option value="c">C</option>
+
+						<!-- C Loop -->
+						<%} else if(codeElements.lang == "c"){ %>
+						<option selected value="c">C</option>
+						<option value="python3">Python 3</option>
+						<option value="java">Java</option>
+						<option value="php">PHP</option>
+
+						<!-- Default Setting, No Language selected -->
+						<%} else{%>
 						<option selected disabled hidden>Choose your language</option>
 						<option value="python3">Python 3</option>
 						<option value="php">PHP</option>
 						<option value="java">Java</option>
 						<option value="c">C</option>
+						<%}%>
 					</select>
 				</div>
 				<div class="problem-row">

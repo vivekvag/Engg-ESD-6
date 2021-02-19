@@ -17,6 +17,8 @@ const multer = require('multer');
 const app = express();
 var request = require('request');
 
+const challengesQues = require('./public/vendor/challenges.json');
+
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -37,6 +39,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
 var codeElements = {};
+var obj = {};
 
 const userSchema = new mongoose.Schema({
     first_name: String,
@@ -67,38 +70,38 @@ app.get('/assignments', function(req,res){
     if(userLogin == false) {
         res.render('login',{ userLogin: userLogin})
     }
-    const assignments = [
-        {
-            title: 'Title 1',
-            desc: 'Desc 1',
-            category: 'Category 1',
-            day: 15,
-            month: 'Jan',
-            year: 2020
-        },
-        {
-            title: 'Title 2',
-            desc: 'Desc 2',
-            category: 'Category 2',
-            day: 29,
-            month: 'Feb',
-            year: 2020
-        }
-    ]
-    res.render('assignments', { assignments: assignments, userLogin: userLogin });
+    res.render('assignments', { challengesQues: challengesQues, userLogin: userLogin });
 });
-    
+
+
 app.get('/login', function(req,res){
     res.render('login',{userLogin: userLogin});
 });
 app.get('/register', function(req,res){
     res.render('register',{userLogin: userLogin});
 });
+app.get('/question-found', function(req,res){
+    res.redirect('/problem');
+});
+
+app.get('/problem/:id', function(req,res){
+    id = req.params.id;
+    console.log(id);  
+    challengesQues.forEach(question=>{
+        if(id==question.id){
+            obj.question = question;
+            res.redirect('/problem');
+            console.log('working fine');
+        }
+    })  
+});
 
 app.get('/problem', function(req,res){
     codeElements = {code:"",output:"",lang:"python3"}
-    res.render('problem',{codeElements:codeElements});
+    res.render('problem',{codeElements:codeElements, userLogin:userLogin, obj:obj});
 });
+
+
 
 // Submit Code Route....
 app.post("/submit-code",function(req,res){
@@ -122,7 +125,7 @@ app.post("/submit-code",function(req,res){
         // console.log('body:', body);
         codeElements.output = body.output;
         console.log(codeElements);
-        res.render('problem',{codeElements: codeElements})
+        res.render('problem',{codeElements: codeElements, userLogin:userLogin, obj:obj})
     });
 
 })

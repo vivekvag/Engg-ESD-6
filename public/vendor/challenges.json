@@ -1,0 +1,31 @@
+[
+    {
+        "id" : 1,
+        "title": "Print Hello World",
+        "desc": "Write a Program to Print the phrase 'Hello World' on the output screen",
+        "category": "Category 1",
+        "day": 15,
+        "month": "Jan",
+        "year": 2021,
+        "answer":"Hello World"
+    },
+    {   
+        "id" : 2,
+        "title": "Largest out of 3 numbers",
+        "desc": "Write a program to print largest number out of 3 numbers. Assume x=10,y=12 and z=7",
+        "category": "Category 1",
+        "day": 15,
+        "month": "Jan",
+        "year": 2021,
+        "answer":"12"
+    },
+    {   "id" : 3,
+        "title": "Print Even Numbers",
+        "desc": "Write a program to print all even numbers from 1 to 10",
+        "category": "Category 1",
+        "day": 15,
+        "month": "Jan",
+        "year": 2021,
+        "answer":"2 4 6 8 10"
+    }
+]

@@ -25,7 +25,7 @@
 		<main>
 			<form class="problem-solving" method="post" action="/submit-code">
 				<div class="property">
-					<h2 class="question">What is the Question?</h2>
+					<h2 class="question"><%= obj.question.desc%></h2>
 					<select class="problem-select" name="language">
 						<option selected disabled hidden>Choose your language</option>
 						<option value="python3">Python 3</option>

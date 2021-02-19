@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <main>
-        <div class="section">
-            <h1>Hey, there...</h1>
-            <form method="post" action="/submit-code">
-            	<select name="language">
-            		<option value="python3">Python 3</option>
-            		<option value="php">PHP</option>
-            		<option value="java">Java</option>
-            		<option value="c">C</option>
-            	</select>
-            	<br>
-	            <textarea name="code"><%= codeElements.code %></textarea>
-	            <input type="submit">
-	            <!-- <button type="submit" id="submit" onclick="getOutput();">Submit</button> -->
-            </form>
-        </div>
-        <div id="output"><%= codeElements.output%></div>
-    </main>
-    <script>
-    	// function getOutput() {
-    	// 	var data1 = {
-    	// 		code: $('#code').val()
-    	// 	};
-    	// 	$.ajax({
-    	// 		type: "POST",
-    	// 		timeout: 2000,
-    	// 		data: JSON.stringify(data1),
-    	// 		url: "http://localhost:3000/submit-code",
-    	// 		contentType: "application/json",
-    	// 		// success: function (data) {
-			  //   //     console.log(data);
-			  //   //     $('#output').html(JSON.stringify(data,"",2));
-			  //   // }
-    	// 	})
-    	// 	.done(function(data){
-    	// 		$('#output').html(JSON.stringify(data,"",2));
-    	// 		console.log(data);
-    	// 	})
-    	// 	.fail(function(jqXHR,textstatus,err){
-    	// 		console.log(textstatus);
-    	// 	})
-    	// }
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Problem 2</title>
+
+		<!-- CSS File -->
+		<link rel="stylesheet" type="text/css" href="css/problem.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			ref="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<!-- Problem Solving  -->
+		<main>
+			<form class="problem-solving" method="post" action="/submit-code">
+				<div class="property">
+					<h2 class="question">What is the Question?</h2>
+					<select class="problem-select" name="language">
+						<option selected disabled hidden>Choose your language</option>
+						<option value="python3">Python 3</option>
+						<option value="php">PHP</option>
+						<option value="java">Java</option>
+						<option value="c">C</option>
+					</select>
+				</div>
+				<div class="problem-row">
+					<div class="input-code">
+						<div class="input-form">
+							<textarea name="code" id="" class="input">
+<%= codeElements.code %></textarea
+							>
+						</div>
+					</div>
+
+					<!-- Ouput Code -->
+					<div class="output-code">
+						<div class="output-form">
+							<textarea name="" id="" class="output" readonly>
+<%= codeElements.output%></textarea
+							>
+						</div>
+					</div>
+				</div>
+				<div class="problem-execute">
+					<button type="submit" class="problem-submit">Execute</button>
+				</div>
+			</form>
+		</main>
+
+		<script>
+			// $('.input').keyup(function (event) {
+			// 	if (event.which != 13) return;
+			// 	var elm = $(this).css('color', 'blue');
+			// 	var lines = elm.val().split('\n');
+			// 	for (var i = 0; i < lines.length; i++)
+			// 		lines[i] = lines[i].replace(/(\d+\.\s|^)/, i + 1 + '. ');
+			// 	elm.val(lines.join('\n'));
+			// });
+		</script>
+	</body>
 </html>

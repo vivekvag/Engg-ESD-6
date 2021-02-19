@@ -51,10 +51,6 @@ const User = new mongoose.model('User', userSchema);
 
 const assignmentsRouter = require('./routes/assignments')
 
-app.get('/problem', function(req,res){
-    codeElements = {code:"",output:"",lang:"python3"}
-    res.render('problem',{codeElements:codeElements});
-});
 app.get('/', function(req,res){
     res.render('index');
 });
@@ -77,6 +73,39 @@ app.get('/login', function(req,res){
 app.get('/register', function(req,res){
     res.render('register');
 });
+
+app.get('/problem', function(req,res){
+    codeElements = {code:"",output:"",lang:"python3"}
+    res.render('problem',{codeElements:codeElements});
+});
+
+// Submit Code Route....
+app.post("/submit-code",function(req,res){
+    codeElements.code = req.body.code;
+    codeElements.lang = req.body.language;
+    var program = {
+        script : req.body.code,
+        language: req.body.language,
+        versionIndex: "3",
+        clientId: process.env.CLIENT_ID,
+        clientSecret:process.env.CLIENT_SECRET
+    };
+    request({
+        url: 'https://api.jdoodle.com/v1/execute',
+        method: "POST",
+        json: program
+    },
+    function (error, response, body) {
+        // console.log('error:', error);
+        // console.log('statusCode:', response && response.statusCode);
+        // console.log('body:', body);
+        codeElements.output = body.output;
+        console.log(codeElements);
+        res.render('problem',{codeElements: codeElements})
+    });
+
+})
+
 app.post("/register", function (req, res) {
 
     const newUser = new User({
@@ -129,34 +158,6 @@ app.post("/login", function (req, res) {
         }
     })
 });
-
-
-app.post("/submit-code",function(req,res){
-    codeElements.code = req.body.code;
-    codeElements.lang = req.body.language;
-    var program = {
-        script : req.body.code,
-        language: req.body.language,
-        versionIndex: "3",
-        clientId: process.env.CLIENT_ID,
-        clientSecret:process.env.CLIENT_SECRET
-    };
-    request({
-        url: 'https://api.jdoodle.com/v1/execute',
-        method: "POST",
-        json: program
-    },
-    function (error, response, body) {
-        // console.log('error:', error);
-        // console.log('statusCode:', response && response.statusCode);
-        // console.log('body:', body);
-        codeElements.output = body.output;
-        console.log(codeElements);
-        res.render('home',{codeElements: codeElements})
-    });
-
-})
-
 
 app.get("/logout", function (req, res) {
     userLogin = false;

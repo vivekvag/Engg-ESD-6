@@ -68,13 +68,16 @@ textarea {
 	border-radius: 5px;
 }
 
-.problem-execute {
+.problem-execute,
+.problem-next {
 	display: flex;
 	align-items: center;
-	width: 50%;
+	flex-direction: column;
+	/* width: 50%; */
 	justify-content: center;
 }
-.problem-submit {
+.problem-submit,
+.problem-next {
 	cursor: pointer;
 	padding: 8px 14px;
 	background-color: #331391;

@@ -97,11 +97,9 @@ app.get('/problem/:id', function(req,res){
 });
 
 app.get('/problem', function(req,res){
-    codeElements = {code:"",output:"",lang:"python3"}
+    codeElements = {flag:"", code:"",output:"()",lang:"python3"}
     res.render('problem',{codeElements:codeElements, userLogin:userLogin, obj:obj});
 });
-
-
 
 // Submit Code Route....
 app.post("/submit-code",function(req,res){
@@ -123,7 +121,16 @@ app.post("/submit-code",function(req,res){
         // console.log('error:', error);
         // console.log('statusCode:', response && response.statusCode);
         // console.log('body:', body);
-        codeElements.output = body.output;
+        codeElements.output = body.output;  
+        if(codeElements.lang == "python3"){
+            obj.question.answer = obj.question.answer + '\n'
+        }
+        if(codeElements.output == obj.question.answer){
+            codeElements.flag = true;
+        }
+        else{
+            codeElements.flag = false;
+        }
         console.log(codeElements);
         res.render('problem',{codeElements: codeElements, userLogin:userLogin, obj:obj})
     });

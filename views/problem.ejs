@@ -45,11 +45,18 @@
 						</div>
 					</div>
 
+					<% if (codeElements.output == "()") { %>
+					<!-- <p>heyy Bunty</p> -->
+					<% codeElements.output = "Heyy Pal, Ready for Coding !!! " %> <%} else
+					if (codeElements.output) {%> <% codeElements.output%> <%} else {%> <%
+					codeElements.output = "Please Select your Language"%> <% } %>
+
 					<!-- Ouput Code -->
 					<div class="output-code">
 						<div class="output-form">
 							<textarea name="" id="" class="output" readonly>
-<%= codeElements.output%></textarea
+<%= codeElements.output%>
+							</textarea
 							>
 						</div>
 					</div>
@@ -58,6 +65,13 @@
 					<button type="submit" class="problem-submit">Execute</button>
 				</div>
 			</form>
+			<% if (codeElements.flag) { %>
+			<form class="problem-next" action="assignments" method="GET">
+				<div>
+					<button type="submit" class="problem-next">Next</button>
+				</div>
+			</form>
+			<%}%>
 		</main>
 
 		<script>

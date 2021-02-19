@@ -70,7 +70,7 @@ app.get('/assignments', function(req,res){
     if(userLogin == false) {
         res.render('login',{ userLogin: userLogin})
     }
-    res.render('assignments', { challengesQues: challengesQues, userLogin: userLogin });
+    res.render('assignments', { codeElements:codeElements, challengesQues: challengesQues, userLogin: userLogin });
 });
 
 
@@ -97,6 +97,9 @@ app.get('/problem/:id', function(req,res){
 });
 
 app.get('/problem', function(req,res){
+    if(userLogin == false) {
+        res.render('login',{ userLogin: userLogin})
+    }   
     codeElements = {flag:"", code:"",output:"()",lang:""}
     res.render('problem',{codeElements:codeElements, userLogin:userLogin, obj:obj});
 });
@@ -125,10 +128,11 @@ app.post("/submit-code",function(req,res){
         if(codeElements.lang == "python3"){
             obj.question.answer = obj.question.answer + '\n'
         }
-        let codeOutput = codeElements.output;
-        let codeAnswer = obj.question.answer;
-        
-        if(codeOutput.toLowerCase() == codeAnswer.toLowerCase()){
+        var codeOutput = codeElements.output;
+        var codeAnswer = obj.question.answer;
+        // codeOutput = codeOutput.toLower();        
+        // codeAnswer = codeAnswer.toLower();        
+        if(codeOutput == codeAnswer){
             codeElements.flag = true;
         }
         else{

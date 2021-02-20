@@ -56,10 +56,12 @@ form.problem-solving {
 	margin: 2%;
 	width: 100%;
 	height: auto;
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
 }
 textarea {
+	font-family: 'Inconsolata', monospace;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 1.5rem;
 	width: 100%;
 	min-height: 40rem;
 	padding: 2em;

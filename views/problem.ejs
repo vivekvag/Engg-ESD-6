@@ -17,12 +17,17 @@
 		/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
+			href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
 			ref="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 			rel="stylesheet"
 		/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
-	<body>
+	<body onload="colorChecker();">
 		<!-- Problem Solving  -->
 		<main>
 			<form class="problem-solving" method="post" action="/submit-code">
@@ -106,14 +111,12 @@
 		</main>
 
 		<script>
-			// $('.input').keyup(function (event) {
-			// 	if (event.which != 13) return;
-			// 	var elm = $(this).css('color', 'blue');
-			// 	var lines = elm.val().split('\n');
-			// 	for (var i = 0; i < lines.length; i++)
-			// 		lines[i] = lines[i].replace(/(\d+\.\s|^)/, i + 1 + '. ');
-			// 	elm.val(lines.join('\n'));
-			// });
+			let textArea = document.querySelector('textarea');
+			function colorChecker() {
+				if (textArea.innerText == '@') {
+					console.log('hello');
+				}
+			}
 		</script>
 	</body>
 </html>

@@ -106,41 +106,49 @@ app.get('/problem', function(req,res){
 
 // Submit Code Route....
 app.post("/submit-code",function(req,res){
-    codeElements.code = req.body.code;
-    codeElements.lang = req.body.language;
-    var program = {
-        script : req.body.code,
-        language: req.body.language,
-        versionIndex: "3",
-        clientId: process.env.CLIENT_ID,
-        clientSecret:process.env.CLIENT_SECRET
-    };
-    request({
-        url: 'https://api.jdoodle.com/v1/execute',
-        method: "POST",
-        json: program
-    },
-    function (error, response, body) {
-        // console.log('error:', error);
-        // console.log('statusCode:', response && response.statusCode);
-        // console.log('body:', body);
-        codeElements.output = body.output;  
-        if(codeElements.lang == "python3"){
-            obj.question.answer = obj.question.answer + '\n'
-        }
-        var codeOutput = codeElements.output;
-        var codeAnswer = obj.question.answer;
-        // codeOutput = codeOutput.toLower();        
-        // codeAnswer = codeAnswer.toLower();        
-        if(codeOutput == codeAnswer){
-            codeElements.flag = true;
-        }
-        else{
-            codeElements.flag = false;
-        }
-        console.log(codeElements);
-        res.render('problem',{codeElements: codeElements, userLogin:userLogin, obj:obj})
-    });
+    if(userLogin == false) {
+        res.render('login',{ userLogin: userLogin})
+    }
+    else{
+        codeElements.code = req.body.code;
+        codeElements.lang = req.body.language;
+        var program = {
+            script : req.body.code,
+            language: req.body.language,
+            versionIndex: "3",
+            clientId: process.env.CLIENT_ID,
+            clientSecret:process.env.CLIENT_SECRET
+        };
+        request({
+            url: 'https://api.jdoodle.com/v1/execute',
+            method: "POST",
+            json: program
+        },
+        function (error, response, body) {
+            // console.log('error:', error);
+            // console.log('statusCode:', response && response.statusCode);
+            // console.log('body:', body);
+            codeElements.output = body.output;  
+            if(codeElements.lang == "python3"){
+                obj.question.answer = obj.question.answer + '\n'
+            }
+            var codeOutput = codeElements.output;
+            var codeAnswer = obj.question.answer;
+            // codeOutput = codeOutput.toLower();        
+            // codeAnswer = codeAnswer.toLower();   
+            if(codeAnswer == codeOutput){
+                codeElements.flag = true;
+            }
+            else{
+                codeElements.flag = false;
+            }
+            console.log(codeElements);
+            console.log(typeof codeOutput);
+            console.log(typeof codeAnswer);
+            
+            res.render('problem',{codeElements: codeElements, userLogin:userLogin, obj:obj})
+        });
+    }
 
 })
 

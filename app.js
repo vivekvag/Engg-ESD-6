@@ -132,19 +132,19 @@ app.post("/submit-code",function(req,res){
             if(codeElements.lang == "python3"){
                 obj.question.answer = obj.question.answer + '\n'
             }
-            var codeOutput = codeElements.output;
-            var codeAnswer = obj.question.answer;
+            // var codeOutput = codeElements.output;
+            // var codeAnswer = obj.question.answer;
             // codeOutput = codeOutput.toLower();        
             // codeAnswer = codeAnswer.toLower();   
-            if(codeAnswer == codeOutput){
+            if(codeElements.output == obj.question.answer){
                 codeElements.flag = true;
             }
             else{
                 codeElements.flag = false;
             }
             console.log(codeElements);
-            console.log(typeof codeOutput);
-            console.log(typeof codeAnswer);
+            // console.log(typeof codeOutput);
+            // console.log(typeof codeAnswer);
             
             res.render('problem',{codeElements: codeElements, userLogin:userLogin, obj:obj})
         });

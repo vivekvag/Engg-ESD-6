@@ -53,6 +53,7 @@ const userSchema = new mongoose.Schema({
 const answerSchema = new mongoose.Schema({
     flag : Boolean,
     code : String,
+    question_id : String,
     lang : String,
     answer : String,
     user : String,
@@ -82,7 +83,6 @@ app.get('/assignments', function(req,res){
     }
     res.render('assignments', { codeElements:codeElements, challengesQues: challengesQues, userLogin: userLogin });
 });
-
 
 app.get('/login', function(req,res){
     res.render('login',{userLogin: userLogin});
@@ -152,6 +152,7 @@ app.post("/submit-code",function(req,res){
         const newAnswer = new Answer({
             flag : codeElements.flag,
             code : codeElements.code,
+            question_id : obj.question.id,
             lang : codeElements.lang,
             answer : codeElements.output,
             user : userLogin,

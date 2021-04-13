@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
 const answerSchema = new mongoose.Schema({
     flag : Boolean,
     code : String,
-    question_id : String,
+    question_id : Number,
     lang : String,
     answer : String,
     user : String,
@@ -81,7 +81,14 @@ app.get('/assignments', function(req,res){
     if(userLogin == false) {
         res.render('login',{ userLogin: userLogin})
     }
-    res.render('assignments', { codeElements:codeElements, challengesQues: challengesQues, userLogin: userLogin });
+    Answer.find({user:userLogin},function(err,foundAnswer){
+        if (err) {
+        res.render('assignments', { codeElements:codeElements, challengesQues: challengesQues, userLogin: userLogin });
+        } else {
+            console.log(foundAnswer);
+        res.render('assignments', { codeElements:codeElements, challengesQues: challengesQues, userLogin: userLogin, foundAnswer:foundAnswer });
+        }
+    })
 });
 
 app.get('/login', function(req,res){

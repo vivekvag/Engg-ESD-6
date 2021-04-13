@@ -77,10 +77,13 @@
 										</h2>
 									  
 										<button class="submit-assignments">Solve Challenge</button>
-										<ul class="blog-info-link">
-											<% if (codeElements.flag) { %>
-											<a href="#"><i class="fas fa-check"></i> </a>
+										<ul class="blog-info-link" style="position: relative;">
+											<% foundAnswer.forEach(answer => { %>
+											<% if (answer.question_id == question.id) { %>
+											<a href="#" style="position: absolute;right: 0;bottom: 10px;"><i class="fas fa-check fa-2x"></i> </a>
 											<%}%>
+											<% }); %>
+											
 										</ul>
 									</div>
 								</a>

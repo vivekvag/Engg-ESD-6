@@ -75,14 +75,15 @@
 										<h2 class="blog-head" style="color: #2d2d2d">
 											<p><%= question.desc %></p>
 										</h2>
+										<button class="submit-assignments">Solve Challenge</button>
 									  	<% foundAnswer.forEach(answer => { %>
 										<% if (answer.question_id == question.id) { %>
-										<button class="submit-assignments">Solved</button>
+										
 										<ul class="blog-info-link" style="position: relative;">
 											
 											<a href="#" style="position: absolute;right: 0;bottom: 10px;"><i class="fas fa-check fa-2x"></i> </a>
 											<%} else {%>
-											<button class="submit-assignments">Solve Challenge</button>
+											
 											
 											<% } %>
 											<% }); %>											
